@@ -1,0 +1,139 @@
+/*Mixins*/
+@mixin lightText {
+  color: white;
+}
+@mixin textShadow {
+  text-shadow: 2px 2px 5px black;
+}
+@mixin boxShadow {
+  box-shadow: 2px 2px 10px black;
+}
+@mixin boxShadowInset {
+  box-shadow: inset 2px 2px 10px black;
+}
+@mixin borderRadius {
+  border-radius: 5px;
+}
+@mixin smoothTransition {
+  transition: all 0.1s ease-in-out;
+}
+
+/*Universal Styles*/
+* {
+  font-family: "Metamorphous", cursive;
+}
+body {
+  background-image: url("./media/parch.jpg");
+}
+h1 {
+  text-align: center;
+}
+hr {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double black;
+  color: black;
+  text-align: center;
+  &:after {
+    content: "◈";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+  }
+}
+.text-center {
+  text-align: center;
+}
+
+/*Navigation*/
+.bg-light {
+  @include boxShadow();
+  background-image: url("./media/parch.jpg") !important;
+}
+nav {
+  .img-brand {
+    @include smoothTransition();
+    width: 100%;
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+  .nav-link {
+    @include smoothTransition();
+    font-size: 1.7em;
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+}
+
+/*Content*/
+#landing {
+  @include lightText();
+  @include textShadow();
+  @include boxShadowInset();
+  background-image: url("./media/landimg.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 70vh;
+  margin-bottom: 2em;
+  h1 {
+    margin-top: 4em;
+    font-size: 4em;
+  }
+  p {
+    font-size: 2em;
+  }
+}
+
+#journal {
+  margin-bottom: 2em;
+  p {
+    font-size: 1.5em;
+    padding: 1em;
+  }
+  .img-journal {
+    @include boxShadow();
+    @include borderRadius();
+    width: 100%;
+  }
+}
+
+#members {
+  @include boxShadowInset();
+  background-image: url("./media/members.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 80vh;
+  color: white;
+  h1 {
+    @include textShadow();
+    margin-top: 1em;
+  }
+  .card {
+    @include boxShadow();
+    background-image: url("./media/parch.jpg");
+    color: black;
+    height: 35em;
+    .card-img-top {
+      height: 25em;
+    }
+    .card-title {
+      text-align: center;
+    }
+  }
+}
+
+footer {
+  p {
+    margin-top: 1em;
+    &.fineprint {
+      font-size: 10px;
+    }
+  }
+}
